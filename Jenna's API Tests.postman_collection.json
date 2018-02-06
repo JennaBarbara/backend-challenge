@@ -1,0 +1,90 @@
+{
+	"info": {
+		"name": "Jenna's API Tests",
+		"_postman_id": "71c84116-a5f4-6ace-85c7-b6e5dc94d5fd",
+		"description": "This Postman Request collection contains three request structures.\n\ni. Post new message in new conversation \n \nThis request sends a new menssage without a conversation_id specified. It is used to create a new conversation. It returns a new conversation_id upon successful conversation and it's first message creation. The returned conversation_id can be used to add new messages to that conversation and get that conversation history. \n\nii. Post new message in existing conversation\n\nThis request adds a new message to an existing conversation. You will need to fill the conversation_id parameter with one returned from the \"post new message in new conversation\" request to specify an existing conversation.\n \n\niii. Get conversation history\n\nThis request returns a list of conversation messages. The conversation_id must be added to the request URL.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post new message in new conversation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender\": \"name\",\r\n    \"message\": \"this is a message\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"messages"
+					]
+				},
+				"description": "This request sends a new message without a conversation_id specified. It is used to create a new conversation. It returns a new conversation_id upon successful conversation creation (and creation of its first message). The returned conversation_id can be used to add new messages to that conversation and get that conversation history."
+			},
+			"response": []
+		},
+		{
+			"name": "Post new message in existing conversation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender\": \"name\",\r\n    \"converstaion_id\": \"please add existing conversation_id\",\r\n    \"message\": \"this is a message\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"messages"
+					]
+				},
+				"description": "\r\nThis request send a new message to an existing conversation. You will need to fill the conversation_id parameter with one returned from the \"post new message in new conversation\" request."
+			},
+			"response": []
+		},
+		{
+			"name": "Get conversation history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/conversations/<please add existing conversation_id>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conversations",
+						"<please add existing conversation_id>"
+					]
+				},
+				"description": "\r\nThis request returns a list of conversation messages. The conversation_id must be added to the request URL."
+			},
+			"response": []
+		}
+	]
+}
