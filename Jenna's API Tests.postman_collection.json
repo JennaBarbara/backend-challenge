@@ -47,7 +47,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"sender\": \"name\",\r\n    \"converstaion_id\": \"please add existing conversation_id\",\r\n    \"message\": \"this is a message\"\r\n}"
+					"raw": "{\r\n    \"sender\": \"name\",\r\n    \"conversation_id\": \"please add existing conversation_id\",\r\n    \"message\": \"this is a message\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/messages",
@@ -60,7 +60,7 @@
 						"messages"
 					]
 				},
-				"description": "\r\nThis request send a new message to an existing conversation. You will need to fill the conversation_id parameter with one returned from the \"post new message in new conversation\" request."
+				"description": "\r\nThis request sends a new message to an existing conversation. You will need to fill the conversation_id parameter with one returned from the \"post new message in new conversation\" request."
 			},
 			"response": []
 		},

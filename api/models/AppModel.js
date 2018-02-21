@@ -8,8 +8,9 @@ var ConversationsSchema = new Schema({
   messages: [{
     sender: { type: String, required: [true, 'sender name required'] },
     message: { type: String, required: [true, 'message contents required'] },
-    created:{ type: Date, default: Date.now }
+    created:{ type: Date, default: Date.now },
+    _id : false
   }]
-});
+}, {versionKey: false});
 
 module.exports = mongoose.model('conversations', ConversationsSchema);
